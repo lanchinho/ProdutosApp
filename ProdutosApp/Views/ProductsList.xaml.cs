@@ -18,7 +18,7 @@ public partial class ProductsList : ContentPage
          * através da classe View Model		 
          */
 
-        BindingContext = await ProductViewModel.Create();
+        BindingContext = await ProductViewModel.InicializaProdutosAsync();
     }
 
     /// <summary>

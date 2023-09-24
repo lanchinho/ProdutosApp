@@ -16,7 +16,7 @@ namespace ProdutosApp.Models
         public ObservableCollection<ProductModel> Products { get; set; } = new ObservableCollection<ProductModel>();
         private readonly IProductsService _productsService = new ProductService();
 
-        public static async Task<ProductViewModel> Create()
+        public static async Task<ProductViewModel> InicializaProdutosAsync()
         {
             var productViewModel = new ProductViewModel();
             
