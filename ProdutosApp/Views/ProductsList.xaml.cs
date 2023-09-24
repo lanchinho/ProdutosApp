@@ -1,4 +1,5 @@
 using ProdutosApp.Models;
+using System.Diagnostics;
 
 namespace ProdutosApp.Views;
 
@@ -11,14 +12,22 @@ public partial class ProductsList : ContentPage
 
     protected override async void OnAppearing()
     {
-        base.OnAppearing();       
+        try
+        {
+            base.OnAppearing();
 
-        /*
-         * Executando a consulta de produtos,
-         * através da classe View Model		 
-         */
+            /*
+             * Executando a consulta de produtos,
+             * através da classe View Model		 
+             */
+            BindingContext = await ProductViewModel.InicializaProdutosAsync();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex);
+            throw;
+        }
 
-        BindingContext = await ProductViewModel.InicializaProdutosAsync();
     }
 
     /// <summary>
