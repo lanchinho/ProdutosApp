@@ -14,12 +14,20 @@ namespace ProdutosApp.Models
     public class ProductViewModel
     {
         public ObservableCollection<ProductModel> Products { get; set; } = new ObservableCollection<ProductModel>();
-
         private readonly IProductsService _productsService = new ProductService();
 
-        public ProductViewModel() => LoadProducts();
+        public static async Task<ProductViewModel> Create()
+        {
+            var productViewModel = new ProductViewModel();
+            
+            await productViewModel.LoadProducts();
 
-        public async void LoadProducts()
+            return productViewModel;
+        }
+
+        private ProductViewModel() { }
+
+        public async Task LoadProducts()
         {
             var products = await _productsService.GetProducts();
             foreach (var product in products)

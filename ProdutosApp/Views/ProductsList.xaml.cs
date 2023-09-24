@@ -7,13 +7,18 @@ public partial class ProductsList : ContentPage
     public ProductsList()
     {
         InitializeComponent();
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();       
 
         /*
-		 * Executando a consulta de produtos,
-		 * através da classe View Model		 
-		 */
+         * Executando a consulta de produtos,
+         * através da classe View Model		 
+         */
 
-        BindingContext = new ProductViewModel();
+        BindingContext = await ProductViewModel.Create();
     }
 
     /// <summary>
