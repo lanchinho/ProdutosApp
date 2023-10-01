@@ -5,16 +5,21 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:ProdutosApp"
     xmlns:views="clr-namespace:ProdutosApp.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Loja de Produtos"
         ContentTemplate="{DataTemplate views:ProductsList}"
-        Route="ProductsList" />
-
+        Route="ProductsList"/>   
+    
+    <ShellContent
+        Title="Carrinho de Compras"
+        ContentTemplate="{DataTemplate views:ShoppingCart}"
+        Route="ShoppingCart"/>
+    
     <ShellContent
         Title="Detalhes do Produto"
+        FlyoutItemIsVisible="False"
         ContentTemplate="{DataTemplate views:ProductDetails}"
         Route="ProductDetails" />
-
 </Shell>

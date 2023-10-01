@@ -1,31 +1,27 @@
-﻿using ProdutosApp.Services;
-using System;
-using System.Collections.Generic;
+﻿using ProdutosApp.Models;
+using ProdutosApp.Services;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProdutosApp.Models
+namespace ProdutosApp.ViewModels
 {
     /// <summary>
     /// Classe para fornecer os dados dos produtos para um componente (ContentPage)
     /// </summary>
-    public class ProductViewModel
+    public class ProductsListViewModel
     {
         public ObservableCollection<ProductModel> Products { get; set; } = new ObservableCollection<ProductModel>();
         private readonly IProductsService _productsService = new ProductService();
 
-        public static async Task<ProductViewModel> InicializaProdutosAsync()
+        public static async Task<ProductsListViewModel> InicializaProdutosAsync()
         {
-            var productViewModel = new ProductViewModel();
+            var productViewModel = new ProductsListViewModel();
             
             await productViewModel.LoadProducts();
 
             return productViewModel;
         }
 
-        private ProductViewModel() { }
+        private ProductsListViewModel() { }
 
         public async Task LoadProducts()
         {

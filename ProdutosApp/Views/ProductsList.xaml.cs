@@ -1,4 +1,5 @@
 using ProdutosApp.Models;
+using ProdutosApp.ViewModels;
 using System.Diagnostics;
 
 namespace ProdutosApp.Views;
@@ -20,7 +21,7 @@ public partial class ProductsList : ContentPage
              * Executando a consulta de produtos,
              * através da classe View Model		 
              */
-            BindingContext = await ProductViewModel.InicializaProdutosAsync();
+            BindingContext = await ProductsListViewModel.InicializaProdutosAsync();
         }
         catch (Exception ex)
         {

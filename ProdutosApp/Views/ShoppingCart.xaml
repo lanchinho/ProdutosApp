@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProdutosApp.Views.ShoppingCart"
+             Title="Carrinho de Compras">
+    
+    <VerticalStackLayout Margin="20">
+
+        <Label Text="Valor total do Carrinho" FontSize="Title"/>
+        
+        <Label
+            Text="{Binding ShoppingCart.Total}"
+            FontSize="Title"
+            FontAttributes="Bold"
+            />
+
+        <Label Text="Quantidade de Itens" FontSize="Subtitle"/>
+        <Label
+            Text="{Binding ShoppingCart.Quantity}"
+            FontSize="Title"
+            FontAttributes="Bold"
+            />
+    </VerticalStackLayout>
+</ContentPage>

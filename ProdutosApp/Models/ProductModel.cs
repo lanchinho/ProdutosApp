@@ -1,5 +1,4 @@
-﻿using Microsoft.Maui.Platform;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace ProdutosApp.Models
 {
