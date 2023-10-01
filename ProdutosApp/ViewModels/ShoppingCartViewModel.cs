@@ -18,11 +18,9 @@ namespace ProdutosApp.ViewModels
         }
 
         private readonly ShoppingCartService _shoppingCartService = new ShoppingCartService();
-
-        //construtor
+        
         public ShoppingCartViewModel() => LoadShoppingCart();
-
-        //TODO: Refatorar
+        
         public async void LoadShoppingCart()
         {
             ShoppingCart = await _shoppingCartService.GetShoppingCart();

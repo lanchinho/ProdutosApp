@@ -13,6 +13,5 @@ public partial class ShoppingCart : ContentPage
 		 */
 
 		BindingContext = new ShoppingCartViewModel();		
-	}
-	//TODO: fazer igual na product list
+	}	
 }
