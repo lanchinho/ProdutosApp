@@ -3,63 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProdutosApp.Views.ProductDetails"
              Title="Loja de Produtos">
-    <VerticalStackLayout>
+    
+    <ScrollView>
+        <VerticalStackLayout>
 
-        <ScrollView>
-            <VerticalStackLayout Margin="20">
+            <ScrollView>
+                <VerticalStackLayout Margin="20">
 
-                <Image HeightRequest="240" WidthRequest="200">
-                    <Image.Source>
-                        <UriImageSource
+                    <Image HeightRequest="240" WidthRequest="200">
+                        <Image.Source>
+                            <UriImageSource
                                 Uri="{Binding ProductModel.PhotoUrl}"
                                 />
-                    </Image.Source>
-                </Image>
-                <VerticalStackLayout>
-                    <Label Text="{Binding Name}" 
+                        </Image.Source>
+                    </Image>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Name}" 
                                FontSize="Title"
                                FontAttributes="Bold" 
                                />
-                    <Label
+                        <Label
                                Text="{Binding ProductModel.CurrencyPrice}"
                                FontSize="Medium"
                             />
-                    <Label
+                        <Label
                                Text="{Binding ProductModel.Category}"
                                FontSize="Default"
                                FontAttributes="Bold"
                             />
-                    <Label
+                        <Label
                                Text="{Binding ProductModel.Description}"
                                FontSize="Micro"
                                TextColor="Gray"
                             />
 
-                    <Button
+                        <Button
                         Text="Comprar"
                         Margin="10, 20, 10, 10" 
                         HeightRequest="40"
                         BackgroundColor="{StaticResource Primary}">
-                        <Button.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="BtnComprar" Tapped="BtnComprar_Tapped"></TapGestureRecognizer>
-                        </Button.GestureRecognizers>
-                    </Button>
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="BtnComprar" Tapped="BtnComprar_Tapped"></TapGestureRecognizer>
+                            </Button.GestureRecognizers>
+                        </Button>
 
-                    <Button
+                        <Button
                         Text="Voltar"
                         Margin="10, 0, 10, 10"
                         HeightRequest="40"
                         BackgroundColor="{StaticResource Secondary}"
                         TextColor="Black"
                      >
-                        <Button.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="BtnVoltar" Tapped="BtnVoltar_Tapped"></TapGestureRecognizer>
-                        </Button.GestureRecognizers>
-                    </Button>
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="BtnVoltar" Tapped="BtnVoltar_Tapped"></TapGestureRecognizer>
+                            </Button.GestureRecognizers>
+                        </Button>
 
+                    </VerticalStackLayout>
                 </VerticalStackLayout>
-            </VerticalStackLayout>
-        </ScrollView>
+            </ScrollView>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

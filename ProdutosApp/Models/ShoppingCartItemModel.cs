@@ -1,4 +1,6 @@
-﻿namespace ProdutosApp.Models
+﻿using System.Globalization;
+
+namespace ProdutosApp.Models
 {
     public class ShoppingCartItemModel
     {
@@ -15,5 +17,7 @@
                     return 0m;
             }
         }
+
+        public string CurrencyTotal => Total.ToString("c", CultureInfo.GetCultureInfo("pt-BR"));
     }
 }

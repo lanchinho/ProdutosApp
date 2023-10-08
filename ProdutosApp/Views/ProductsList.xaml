@@ -4,56 +4,57 @@
              x:Class="ProdutosApp.Views.ProductsList"
              Title="ProductsList">
 
-    <CollectionView x:Name="productsList"
+    <ScrollView>
+        <CollectionView x:Name="productsList"
         ItemsSource="{Binding Products}"
         SelectionMode="Single"
         SelectionChanged="OnProductSelection"           
         Margin="20">
 
-        <CollectionView.ItemsLayout>
-            <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-        </CollectionView.ItemsLayout>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
 
-                <VerticalStackLayout>
+                    <VerticalStackLayout>
 
-                    <Image HeightRequest="240" WidthRequest="200">
-                        <Image.Source>
-                            <UriImageSource
+                        <Image HeightRequest="240" WidthRequest="200">
+                            <Image.Source>
+                                <UriImageSource
                                 Uri="{Binding PhotoUrl}"
                                 />
-                        </Image.Source>
-                    </Image>
-                    <VerticalStackLayout>
-                        <Label Text="{Binding Name}" 
+                            </Image.Source>
+                        </Image>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" 
                                FontSize="Title"
                                FontAttributes="Bold" 
                                />
-                        <Label
+                            <Label
                                Text="{Binding CurrencyPrice}"
                                FontSize="Medium"
                             />
-                        <Label
+                            <Label
                                Text="{Binding Category}"
                                FontSize="Default"
                                FontAttributes="Bold"
                             />
-                        <Label
+                            <Label
                                Text="{Binding Description}"
                                FontSize="Micro"
                                TextColor="Gray"                            
                             />
+                        </VerticalStackLayout>
+
                     </VerticalStackLayout>
 
-                </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
 
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-
-    </CollectionView>
-
+        </CollectionView>
+    </ScrollView>
 </ContentPage>
 
 
