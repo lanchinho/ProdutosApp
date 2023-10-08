@@ -2,58 +2,135 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProdutosApp.Views.ProductsList"
-             Title="ProductsList">
+             Title="Loja de Produtos">
 
     <ScrollView>
-        <CollectionView x:Name="productsList"
-        ItemsSource="{Binding Products}"
-        SelectionMode="Single"
-        SelectionChanged="OnProductSelection"           
-        Margin="20">
 
-            <CollectionView.ItemsLayout>
-                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
-            </CollectionView.ItemsLayout>
+        <StackLayout>
+            
+            <StackLayout Margin="20, 10, 20, 0">
+                <Grid VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
+                    <StackLayout Grid.Row="0" Grid.Column="0" Margin="2">
 
-                    <VerticalStackLayout>
+                        <Border StrokeShape="RoundRectangle 6, 6, 6, 6"
+                                BackgroundColor="Transparent"
+                                StrokeThickness="1">
+                            <Label 
+                            Margin="10"
+                            HorizontalOptions="Center"
+                            Text="Informática"
+                            FontSize="12"
+                         />
 
-                        <Image HeightRequest="240" WidthRequest="200">
-                            <Image.Source>
-                                <UriImageSource
+                        </Border>
+                        
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0" Grid.Column="1" Margin="2">
+
+                        <Border StrokeShape="RoundRectangle 6, 6, 6, 6"
+                                BackgroundColor="Transparent"
+                                StrokeThickness="1">
+                            <Label 
+                            Margin="10"
+                            HorizontalOptions="Center"
+                            Text="Eletrônicos"
+                            FontSize="12"
+                         />
+
+                        </Border>
+
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0" Grid.Column="2" Margin="2">
+
+                        <Border StrokeShape="RoundRectangle 6, 6, 6, 6"
+                                BackgroundColor="Transparent"
+                                StrokeThickness="1">
+                            <Label 
+                            Margin="10"
+                            HorizontalOptions="Center"
+                            Text="Games"
+                            FontSize="12"
+                         />
+
+                        </Border>
+
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout>
+
+                <CollectionView x:Name="productsList"
+                                ItemsSource="{Binding Products}"
+                                SelectionMode="Single"
+                                SelectionChanged="OnProductSelection"
+                                Margin="20, 10, 20, 20">
+
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Border StrokeShape="RoundRectangle 6, 6, 6, 6"
+                                Margin="0,0,0,10"
+                                BackgroundColor="Transparent"
+                                StrokeThickness="1">
+
+                                <VerticalStackLayout Margin="20">
+                                    <Image HeightRequest="200" WidthRequest="160">
+                                        <Image.Source>
+                                            <UriImageSource
                                 Uri="{Binding PhotoUrl}"
                                 />
-                            </Image.Source>
-                        </Image>
-                        <VerticalStackLayout>
-                            <Label Text="{Binding Name}" 
-                               FontSize="Title"
+                                        </Image.Source>
+                                    </Image>
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding Name}" 
+                               FontSize="20"
                                FontAttributes="Bold" 
                                />
-                            <Label
+                                        <Label
                                Text="{Binding CurrencyPrice}"
-                               FontSize="Medium"
+                               FontSize="20"
                             />
-                            <Label
+                                        <Label
                                Text="{Binding Category}"
-                               FontSize="Default"
+                               FontSize="14"
                                FontAttributes="Bold"
                             />
-                            <Label
+                                        <Label
                                Text="{Binding Description}"
-                               FontSize="Micro"
-                               TextColor="Gray"                            
+                               FontSize="11"
+                               TextColor="Gray"
                             />
-                        </VerticalStackLayout>
 
-                    </VerticalStackLayout>
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
+                            </Border>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
 
-        </CollectionView>
+                </CollectionView>
+
+
+            </StackLayout>
+            
+        </StackLayout>
     </ScrollView>
 </ContentPage>
 

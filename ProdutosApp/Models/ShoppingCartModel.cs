@@ -5,7 +5,7 @@ namespace ProdutosApp.Models
     public class ShoppingCartModel
     {
         public List<ShoppingCartItemModel> Itens { get; set; }
-        public int Quantity 
+        public int Quantity
         {
             get
             {
@@ -13,20 +13,22 @@ namespace ProdutosApp.Models
                     return Itens.Sum(x => x.Quantity);
 
                 return 0;
-            } 
+            }
         }
 
         public decimal Total
         {
-            get 
-            { 
-                if(Itens != null && Itens.Any())
+            get
+            {
+                if (Itens != null && Itens.Any())
                     return Itens.Sum(x => x.Total);
 
-                return 0m; 
+                return 0m;
             }
         }
 
         public string CurrencyTotal => Total.ToString("c", CultureInfo.GetCultureInfo("pt-BR"));
+
+        public bool IsVisible => Quantity > 0;
     }
 }

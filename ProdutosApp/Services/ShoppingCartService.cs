@@ -64,5 +64,10 @@ namespace ProdutosApp.Services
 
             return null;
         }
+
+        public void RemoveAll()
+        {
+            SecureStorage.Remove(_key);
+        }
     }
 }

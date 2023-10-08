@@ -21,5 +21,10 @@ namespace ProdutosApp.Services
         /// Retornando todos os dados do carrinho de compras
         /// </summary>        
         Task<ShoppingCartModel> GetShoppingCart();
+
+        /// <summary>
+        /// Remove todos os itens do carrinho
+        /// </summary>        
+        void RemoveAll();
     }
 }

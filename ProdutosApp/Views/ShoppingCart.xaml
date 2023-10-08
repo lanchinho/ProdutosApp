@@ -4,26 +4,28 @@
              x:Class="ProdutosApp.Views.ShoppingCart"
              Title="Carrinho de Compras">
     <ScrollView>
-        <VerticalStackLayout Margin="20">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+        <VerticalStackLayout Margin="10">
 
-                <Label
+            <StackLayout Margin="4">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 Text="Total do carrinho:"
                 FontSize="14"
             />
 
-                <Label
+                    <Label
                 Grid.Row="0"
                 Grid.Column="1"
                 Text="{Binding ShoppingCart.CurrencyTotal}"
@@ -31,14 +33,14 @@
                 FontAttributes="Bold"
             />
 
-                <Label
+                    <Label
                 Grid.Row="1"
                 Grid.Column="0"
                 Text="Qtd de itens:"
                 FontSize="14"
             />
 
-                <Label
+                    <Label
                 Grid.Row="1"
                 Grid.Column="1"
                 Text="{Binding ShoppingCart.Quantity}"
@@ -46,11 +48,12 @@
                 FontAttributes="Bold"
             />
 
-            </Grid>
+                </Grid>
+            </StackLayout>
 
             <CollectionView x:Name="productsList"
-            Margin="0, 20, 0, 0"
-            ItemsSource="{Binding ShoppingCart.Itens}">
+                Margin="0, 10, 0, 0"
+                ItemsSource="{Binding ShoppingCart.Itens}">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"/>
@@ -59,76 +62,114 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        <StackLayout Margin="4">
 
-                            <Image  
+                            <Border StrokeShape="RoundRectangle 6, 6, 6, 6"
+                                BackgroundColor="Transparent"
+                                StrokeThickness="1">
+
+                                <Grid VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image  
                                 Grid.Row="0" Grid.Column="0"
                                 HeightRequest="90" WidthRequest="80">
-                                <Image.Source>
-                                    <UriImageSource
+                                        <Image.Source>
+                                            <UriImageSource
                                         Uri="{Binding Product.PhotoUrl}"
                                 />
-                                </Image.Source>
-                            </Image>
+                                        </Image.Source>
+                                    </Image>
 
-                            <Grid Grid.Row="0" Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid Grid.Row="0" Grid.Column="1" VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
 
-                                <Label 
+                                        <Label 
                                     Grid.Row="0" Grid.Column="0"
                                     Text="{Binding Product.Name}" 
                                     FontSize="11"
                                     FontAttributes="Bold"
                                />
 
-                                <Label 
+                                        <Label 
                                     Grid.Row="1" Grid.Column="0"
                                     FontSize="11"
                                 >
-                                    <Label.Text>
-                                        <Binding Path="Product.CurrencyPrice"
+                                            <Label.Text>
+                                                <Binding Path="Product.CurrencyPrice"
                                              StringFormat="Preço Unit: {0}"/>
-                                    </Label.Text>
-                                </Label>
+                                            </Label.Text>
+                                        </Label>
 
-                                <Label 
+                                        <Label 
                                     Grid.Row="2" Grid.Column="0"
                                     FontSize="11"
                                 >
-                                    <Label.Text>
-                                        <Binding Path="Quantity"
+                                            <Label.Text>
+                                                <Binding Path="Quantity"
                                              StringFormat="Quantidade: {0}"/>
-                                    </Label.Text>
-                                </Label>
+                                            </Label.Text>
+                                        </Label>
 
-                                <Label 
+                                        <Label 
                                     Grid.Row="3" Grid.Column="0"
                                     FontSize="11"
                                 >
-                                    <Label.Text>
-                                        <Binding Path="CurrencyTotal"
+                                            <Label.Text>
+                                                <Binding Path="CurrencyTotal"
                                              StringFormat="Total: {0}"/>
-                                    </Label.Text>
-                                </Label>
-                            </Grid>
+                                            </Label.Text>
+                                        </Label>
 
-                        </Grid>
+                                        <Grid Grid.Row="4" Grid.Column="0" VerticalOptions="Center"
+                                      Margin="0, 4, 0, 0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label 
+                                        Grid.Row="0" Grid.Column="0"
+                                        FontSize="11"
+                                        TextColor="Green"
+                                        Text="(+) Adicionar"
+                                    />
+
+                                            <Label 
+                                        Grid.Row="0" Grid.Column="1"
+                                        FontSize="11"
+                                        TextColor="Red"
+                                        Text="(-) Remover"
+                                    />
+
+                                        </Grid>
+
+                                    </Grid>
+
+                                </Grid>
+
+
+                            </Border>
+
+                        </StackLayout>
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -137,10 +178,36 @@
 
             <Button
                 Text="Finalizar Compra"
-                Margin="0, 10, 0, 20"
+                Margin="0, 10, 0, 0"
                 HeightRequest="40"
                 BackgroundColor="{StaticResource Primary}"
             />
+
+            <Button
+                Text="Continuar Comprando"
+                Margin="0, 10, 0, 0"
+                HeightRequest="40"
+                TextColor="Black"
+                BackgroundColor="{StaticResource Secondary}"
+            >
+                <Button.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="BtnBackToHome"
+                                                  Tapped="BtnBackToHome_Tapped"/>
+                </Button.GestureRecognizers>
+            </Button>
+
+            <Button
+                Text="Limpar Carrinho de compras"
+                Margin="0, 10, 0, 20"
+                HeightRequest="40"
+                TextColor="Black"
+                BackgroundColor="{StaticResource Yellow300Accent}"
+            >
+                <Button.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="BtnRemoveCart"
+                                                  Tapped="BtnRemoveCart_Tapped"/>
+                </Button.GestureRecognizers>
+            </Button>
 
         </VerticalStackLayout>
     </ScrollView>
